@@ -22,8 +22,9 @@ public:
 
     Matrix operator+(const Matrix &m1) const ;  //overloads operator +
     Matrix operator-(const Matrix &m1) const ;  //overloads operator -
-    friend Matrix operator*(int a, const Matrix &m1);
-    friend Matrix operator*(Matrix &m1, int a);
+    Matrix operator*(const Matrix &m1) const ;  //overloads operator *
+    friend Matrix operator*(int a, const Matrix &m1);   //overloads operator *, for multiplication with number
+    friend Matrix operator*(Matrix &m1, int a);         //overloads operator *, for multiplication with number
 
     void info() const ;     //used for debug, prints matrix
     void fillMatrix(std::vector<std::vector<int>> &a);  //fills matrix with given vector

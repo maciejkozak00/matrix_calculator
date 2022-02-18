@@ -137,3 +137,28 @@ Matrix operator*(Matrix &m1, int a) {
     }
     return w;
 }
+
+Matrix Matrix::operator*(const Matrix &m1) const {
+    if(c != m1.getRows())
+    {
+        std::cout << "Number of columns of left matrix must be equal to number of rows of right matrix" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    Matrix w;
+    w.resizeMatrix(r, m1.getColumns());
+
+    for(int i = 0; i < w.getRows(); i++)
+    {
+        for(int j = 0; j < w.getColumns(); j++)
+        {
+            int h = 0;
+            for(int k = 0; k < c; k++)
+            {
+                h += getValue(i, k) * m1.getValue(k, j);
+            }
+            w.setValue(i, j, h);
+        }
+    }
+
+    return w;
+}

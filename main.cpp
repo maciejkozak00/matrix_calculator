@@ -2,27 +2,28 @@
 #include "Matrix.h"
 
 int main() {
-    std::vector<std::vector<int>> a
+    std::vector<std::vector<int>> c
             {
-                    {1,2,3,4},
-                    {4,5,6,7},
-                    {7,8,9,10},
+                    {-2,-3,1},
+                    {-1,4,0}
             };
-    std::vector<std::vector<int>> b
+    std::vector<std::vector<int>> d
             {
-                    {1,0,0,0},
-                    {0,1,0,0},
-                    {0,0,1,0},
+                    {-2,-1,2},
+                    {3,0,1},
+                    {2,2,-1},
             };
 
     Matrix m1;
     Matrix m2;
 
-    m1.fillMatrix(a);
-    m2.fillMatrix(b);
+    m1.fillMatrix(c);
+    m2.fillMatrix(d);
 
     Matrix w;
 
-    w = 3*m1;
+
+
+    w = m1*m2;
     w.info();
 }
