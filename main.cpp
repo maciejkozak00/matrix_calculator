@@ -23,6 +23,6 @@ int main() {
 
     Matrix w;
 
-    w = m1 + m2;
+    w = m1 - m2;
     w.info();
 }

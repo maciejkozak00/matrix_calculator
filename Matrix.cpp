@@ -34,26 +34,6 @@ int Matrix::getValue(int row, int column) const {
     return mtrx.at(row).at(column);
 }
 
-Matrix Matrix::operator+(const Matrix &m1) const {
-    if(c != m1.getColumns() || r != m1.getRows())
-    {
-        std::cout << "Columns and rows must be equal in each matrix!" << std::endl;
-        exit(EXIT_FAILURE);
-    }
-
-    Matrix w;
-    w.resizeMatrix(r, c);
-
-    for(int i = 0; i < r; i++)
-    {
-        for(int j = 0; j < c; j++)
-        {
-            w.setValue(i, j, getValue(i, j) + m1.getValue(i, j));
-        }
-    }
-    return w;
-}
-
 void Matrix::setValue(int row, int column, int value) {
     mtrx.at(row).at(column) = value;
 }
@@ -90,4 +70,42 @@ void Matrix::fillMatrix(std::vector<std::vector<int>> &a) {
         mtrx.at(i).resize(c);
     }
     mtrx = a;
+}
+
+Matrix Matrix::operator+(const Matrix &m1) const {
+    if(c != m1.getColumns() || r != m1.getRows())
+    {
+        std::cout << "Columns and rows must be equal in each matrix!" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    Matrix w;
+    w.resizeMatrix(r, c);
+
+    for(int i = 0; i < r; i++)
+    {
+        for(int j = 0; j < c; j++)
+        {
+            w.setValue(i, j, getValue(i, j) + m1.getValue(i, j));
+        }
+    }
+    return w;
+}
+
+Matrix Matrix::operator-(const Matrix &m1) const {
+    if(c != m1.getColumns() || r != m1.getRows())
+    {
+        std::cout << "Columns and rows must be equal in each matrix!" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    Matrix w;
+    w.resizeMatrix(r, c);
+    for(int i = 0; i < r; i++)
+    {
+        for(int j = 0; j < c; j++)
+        {
+            w.setValue(i, j, getValue(i, j) - m1.getValue(i, j));
+        }
+    }
+    return w;
 }

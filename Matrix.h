@@ -9,21 +9,22 @@ class Matrix {
 
     int r, c;
 
-    int getRows() const ;
-    int getColumns() const ;
-    int getValue(int row, int column) const ;
+    int getRows() const ;   //returns number of rows in matrix
+    int getColumns() const ;    //returns number of columns in matrix
+    int getValue(int row, int column) const ;   //returns value in given coordinates
 
-    void setValue(int row, int column, int value);
-    void resizeMatrix(int rows, int columns);
+    void setValue(int row, int column, int value);  //sets given value in given coordinates
+    void resizeMatrix(int rows, int columns);   //resizes matrix, anc changes r and c values
 
 public:
     Matrix(int rows, int columns);
     Matrix();
 
-    Matrix operator+(const Matrix &m1) const ;
+    Matrix operator+(const Matrix &m1) const ;  //overloads operator +
+    Matrix operator-(const Matrix &m1) const ;  //overloads operator +
 
-    void info() const ;
-    void fillMatrix(std::vector<std::vector<int>> &a);
+    void info() const ;     //used for debug, prints matrix
+    void fillMatrix(std::vector<std::vector<int>> &a);  //fills matrix with given vector
 
 };
 
