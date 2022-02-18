@@ -109,3 +109,31 @@ Matrix Matrix::operator-(const Matrix &m1) const {
     }
     return w;
 }
+
+Matrix operator*(int a, const Matrix &m1) {
+    Matrix w;
+    w.resizeMatrix(m1.getRows(),m1.getColumns());
+
+    for(int i = 0; i < m1.getRows(); i++)
+    {
+        for(int j = 0; j < m1.getColumns(); j++)
+        {
+            w.setValue(i, j, m1.getValue(i, j) * a);
+        }
+    }
+    return w;
+}
+
+Matrix operator*(Matrix &m1, int a) {
+    Matrix w;
+    w.resizeMatrix(m1.getRows(),m1.getColumns());
+
+    for(int i = 0; i < m1.getRows(); i++)
+    {
+        for(int j = 0; j < m1.getColumns(); j++)
+        {
+            w.setValue(i, j, m1.getValue(i, j) * a);
+        }
+    }
+    return w;
+}

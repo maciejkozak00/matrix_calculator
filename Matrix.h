@@ -21,12 +21,17 @@ public:
     Matrix();
 
     Matrix operator+(const Matrix &m1) const ;  //overloads operator +
-    Matrix operator-(const Matrix &m1) const ;  //overloads operator +
+    Matrix operator-(const Matrix &m1) const ;  //overloads operator -
+    friend Matrix operator*(int a, const Matrix &m1);
+    friend Matrix operator*(Matrix &m1, int a);
 
     void info() const ;     //used for debug, prints matrix
     void fillMatrix(std::vector<std::vector<int>> &a);  //fills matrix with given vector
 
 };
+
+Matrix operator*(int a, const Matrix &m1);
+Matrix operator*(Matrix &m1, int a);
 
 
 #endif //MATRIX_CALCULATOR_MATRIX_H
